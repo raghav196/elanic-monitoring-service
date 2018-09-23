@@ -41,7 +41,7 @@ monitorUrl.monitorUrlCronJob = function(){
 					const urlResponses = _.map(monitorUrlsResult, (e, idx) => {
 						return {
 							url_id: urls[idx]._id,
-							response: e.response,
+							response: _.isString(e.response) ? e.response : JSON.stringify(e.response),
 							response_time_in_ms: e.response_time,
 							status_code: e.status_code
 						};

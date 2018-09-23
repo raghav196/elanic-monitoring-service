@@ -7,7 +7,7 @@ exports.up = async (knex) => {
 			.notNullable()
 			.onUpdate('CASCADE')
 			.onDelete('CASCADE');
-  	table.jsonb('response');
+  	table.text('response');
   	table.string('status_code');
   	table.specificType('response_time_in_ms', 'numeric').notNullable();
 		table.timestamp('created_at', false).defaultTo(knex.fn.now());

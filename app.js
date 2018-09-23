@@ -30,7 +30,7 @@ process.on("unhandledRejection", function(reason, promise){
 });
 
 // cron job to monitor urls
-// monitorUrlCronJob.monitorUrlsCron();
+monitorUrlCronJob.monitorUrlsCron();
 
 app.get('/', function(req, res){
   res.status(200).json({
