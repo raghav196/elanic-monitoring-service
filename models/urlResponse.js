@@ -21,7 +21,8 @@ exports.getUrlResponse = (urlId) => {
 			'urls.url',
 			'urls.data',
 			'urls.headers',
-			'url_responses.response_time_in_ms'
+			'url_responses.response_time_in_ms',
+			'url_responses.created_at'
 		]).orderBy('url_responses.created_at', 'desc');
 	});
 };

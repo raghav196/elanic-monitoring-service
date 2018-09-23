@@ -67,13 +67,23 @@ exports.getMonitoringUrl = (req) => {
 				return e.response_time_in_ms;
 			});
 
-			const percentileData = _.reverse(_.sortBy(responseTimes));
+			debug('RESPONSE TIMES');
+			debug(responseTimes);
+			debug(urlResponseData);
+
+			const responses = _.slice(responseTimes, 0, 100);
+
+			const percentileData = _.sortBy(responseTimes);
+
+			debug(responses);
+			debug(percentileData);
+
 			const percentile_50th = helper.calculateNthPercentile(percentileData, 50);
 			const percentile_75th = helper.calculateNthPercentile(percentileData, 75);
 			const percentile_95th = helper.calculateNthPercentile(percentileData, 95);
 			const percentile_99th = helper.calculateNthPercentile(percentileData, 99);
 
-			const responses = _.slice(responseTimes, 0, 100);
+
 
 			let response = _.pick(url[0], ['_id', 'url', 'method', 'data', 'headers']);
 

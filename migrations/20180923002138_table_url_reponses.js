@@ -6,7 +6,8 @@ exports.up = async (knex) => {
   	table.integer('url_id').references('_id').inTable('urls')
 			.notNullable()
 			.onUpdate('CASCADE')
-			.onDelete('CASCADE');
+			.onDelete('CASCADE')
+			.index();
   	table.text('response');
   	table.string('status_code');
   	table.specificType('response_time_in_ms', 'numeric').notNullable();

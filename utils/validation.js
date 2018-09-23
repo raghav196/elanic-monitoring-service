@@ -19,7 +19,7 @@ const validation = {};
 
 validation.constructError = function(errors){
 	console.log(errors);
-	const err = errors[0];
+	const err = errors.errors[0];
 	console.log(err);
 	const dataPath = err.dataPath.replace('.', '');
 	const errMessage = err.message;
